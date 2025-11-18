@@ -1,73 +1,224 @@
-# React + TypeScript + Vite
+# DTMRS 公司形象網站
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Version](https://img.shields.io/badge/version-v1.0.0-red)
+![React](https://img.shields.io/badge/React-19.2.0-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue)
+![Vite](https://img.shields.io/badge/Vite-7.2.2-purple)
+![TailwindCSS](https://img.shields.io/badge/Tailwind-4.1.17-cyan)
 
-Currently, two official plugins are available:
+> DTMRS (DTM Racing Sport) 專業賽車改裝公司的官方形象網站
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 專案簡介
 
-## React Compiler
+這是一個專業的賽車改裝公司形象網站，採用現代化的前端技術棧開發，提供流暢的使用者體驗和響應式設計。
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### ✨ 主要特色
 
-## Expanding the ESLint configuration
+- 🔴 **紅色梯形 Sidebar** - 獨特的梯形側邊欄設計（參考 SIRUDA 官網風格）
+- 📞 **右側聯繫按鈕** - 固定的圓形聯繫方式快速連結（Email、電話）
+- 🎬 **首頁動畫效果** - Logo 淡入淡出 + 影片背景自動播放
+- 📱 **響應式設計** - 完美支援桌面、平板、手機各種螢幕尺寸
+- ⚡ **流暢動畫** - 使用 Framer Motion 實現專業級頁面切換動畫
+- 🎨 **專業視覺設計** - 符合賽車改裝行業風格的視覺呈現
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ 技術棧
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| 技術 | 版本 | 用途 |
+|------|------|------|
+| React | 19.2.0 | 前端框架 |
+| TypeScript | 5.9.3 | 類型安全 |
+| Vite | 7.2.2 | 建置工具 |
+| Tailwind CSS | 4.1.17 | 樣式框架 |
+| React Router | 7.9.6 | 路由管理 |
+| Framer Motion | 12.23.24 | 動畫庫 |
+| React Icons | 5.5.0 | 圖標庫 |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📁 專案結構
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+dtmrs-website/
+├── public/
+│   └── assets/
+│       ├── logo/              # DTMRS Logo 文件
+│       ├── images/            # 活動照片（15 張）
+│       └── videos/            # 活動影片（3 部）
+├── src/
+│   ├── components/
+│   │   ├── Sidebar.tsx        # 紅色梯形側邊欄組件
+│   │   ├── ContactButtons.tsx # 右側聯繫按鈕組件
+│   │   └── Layout.tsx         # 頁面佈局組件
+│   ├── pages/
+│   │   ├── Home.tsx           # 首頁（Logo + 影片背景）
+│   │   ├── About.tsx          # 關於我們
+│   │   ├── Products.tsx       # 販售商品
+│   │   ├── Events.tsx         # 參與過的活動
+│   │   ├── Gallery.tsx        # 活動剪影
+│   │   └── Catalog.tsx        # 電子型錄
+│   ├── App.tsx               # 主應用組件
+│   ├── main.tsx              # 應用入口
+│   └── index.css             # 全域樣式
+├── tailwind.config.js        # Tailwind 配置
+├── vite.config.ts            # Vite 配置
+├── package.json              # 專案配置
+├── START.md                  # 啟動指南
+└── README.md                 # 專案說明
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 快速開始
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1. 安裝依賴
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 2. 啟動開發伺服器
+
+```bash
+npm run dev
+```
+
+專案會在 `http://localhost:5173` 啟動
+
+### 3. 建置正式版本
+
+```bash
+npm run build
+```
+
+建置檔案會產生在 `dist/` 資料夾
+
+### 4. 預覽正式版本
+
+```bash
+npm run preview
+```
+
+### 5. 部署到 GitHub Pages
+
+```bash
+npm run deploy
+```
+
+## 📄 頁面說明
+
+### 🏠 首頁 (/)
+- 進入時顯示 DTMRS Logo 淡入動畫（2 秒）
+- Logo 淡出後播放賽車影片背景
+- 顯示公司標語和介紹
+- 影片播放後才顯示 Sidebar 和 ContactButtons
+
+### 👥 關於我們 (/about)
+- 公司簡介與願景
+- 團隊經驗展示
+- 專業數據統計（10+ 年經驗，500+ 成功案例）
+
+### 🛒 販售商品 (/products)
+- 引擎改裝套件
+- 空力套件
+- 懸吊系統
+- 煞車系統
+
+### 🏁 參與過的活動 (/events)
+- 2024 東京車展
+- 2025 Auto Salon
+- Super GT Round 6
+
+### 📸 活動剪影 (/gallery)
+- 15 張活動照片展示
+- 支援 Lightbox 放大檢視
+- 網格式瀑布流佈局
+
+### 📚 電子型錄 (/catalog)
+- 產品型錄下載
+- 詳細規格說明
+- 聯繫資訊
+
+## 🎨 設計規範
+
+### 配色方案
+
+```css
+主色（紅色）: #CC0000
+輔色（藍色）: #0066CC
+深色背景: #1a1a1a
+文字顏色: #1a1a1a
+白色: #FFFFFF
+```
+
+### 響應式斷點
+
+- **桌面版**: 1920px 以上
+- **平板版**: 768px - 1919px
+- **手機版**: 320px - 767px
+
+## 📝 開發指南
+
+### 新增頁面
+
+1. 在 `src/pages/` 建立新的 `.tsx` 檔案
+2. 在 `src/App.tsx` 中新增路由配置
+3. 在 `src/components/Sidebar.tsx` 更新選單項目
+
+### 自訂樣式
+
+- 主要樣式定義在 `tailwind.config.js`
+- 全域樣式在 `src/index.css`
+- 組件樣式使用 Tailwind CSS utility classes
+
+### 版本號管理
+
+專案在 Console 輸出版本號，位於 `src/App.tsx`:
+
+```typescript
+const VERSION = 'v1.0.0';
+console.log(`DTMRS Website ${VERSION}`);
+```
+
+更新版本時請同步更新此文件和 commit 訊息。
+
+## 🚀 部署說明
+
+### GitHub Pages
+
+1. 確保 `vite.config.ts` 中 `base` 設定正確
+2. 執行 `npm run deploy`
+3. 在 GitHub 倉庫設定中啟用 GitHub Pages
+4. 選擇 `gh-pages` 分支
+
+網站會部署到: `https://yanchen184.github.io/dtmrs-website/`
+
+## 📞 聯繫資訊
+
+- **Email**: bobchen184@gmail.com
+- **作品集**: [https://yanchen184.github.io/game-portal](https://yanchen184.github.io/game-portal)
+
+## 📝 更新日誌
+
+### v1.0.0 (2025-11-18)
+
+**新功能**
+- ✅ 初始版本發布
+- ✅ 完成所有主要頁面
+- ✅ 實現梯形 Sidebar 設計
+- ✅ 實現右側聯繫按鈕
+- ✅ 實現首頁影片淡入淡出效果
+- ✅ 完成響應式設計
+- ✅ 整合所有圖片和影片資源
+
+**技術棧**
+- React 19.2.0
+- TypeScript 5.9.3
+- Vite 7.2.2
+- Tailwind CSS 4.1.17
+- Framer Motion 12.23.24
+
+## 📄 授權
+
+© 2025 DTM Racing Sport. All rights reserved.
+
+---
+
+**Made with ❤️ by DTM Racing Sport Team**
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
