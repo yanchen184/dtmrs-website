@@ -41,14 +41,15 @@ const EntryAnimation = () => {
             }}
             className="fixed top-0 left-0 w-full h-full z-[10000] pointer-events-none overflow-hidden"
           >
-            {/* 梯形形狀 - 像截圖中左窄右寬的梯形 */}
+            {/* 梯形形狀 - 跟 Sidebar 相同的斜度和顏色 */}
             <div
-              className="absolute top-0 h-full bg-gradient-to-br from-red-600 via-red-500 to-red-700 shadow-2xl"
+              className="absolute top-0 h-full shadow-2xl"
               style={{
                 width: '200vw', // 加大寬度
                 left: '-30vw',
-                clipPath: 'polygon(0 0, 100% 0, 65% 100%, 20% 100%)', // 左窄右寬的梯形
-                boxShadow: '0 0 100px rgba(220, 0, 0, 0.6)'
+                background: 'linear-gradient(135deg, #CC0000 0%, #990000 100%)', // 跟 Sidebar 一樣的紅色
+                clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)', // 跟 Sidebar 一樣的斜度
+                boxShadow: '0 0 100px rgba(204, 0, 0, 0.6)'
               }}
             >
               {/* 添加光澤效果 */}
