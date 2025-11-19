@@ -19,8 +19,6 @@ jobs:
     steps:
       - name: 📥 Checkout 程式碼
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # 獲取完整歷史記錄
 
       - name: 🔧 設置 Node.js
         uses: actions/setup-node@v4
@@ -35,9 +33,11 @@ jobs:
         run: npm run build
 
       - name: 🚀 部署到 GitHub Pages
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          npm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'deploy: ${{ github.event.head_commit.message }}'
