@@ -7,7 +7,7 @@ const EntryAnimation = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowAnimation(false);
-    }, 4500); // 總時間 = 梯形+Logo飛行(3秒) + 淡出(1.5秒) = 4.5秒
+    }, 7500); // 總時間 = 梯形飛行(3秒) + Logo飛行(3秒) + 淡出(1.5秒) = 7.5秒
 
     return () => clearTimeout(timer);
   }, []);
@@ -20,7 +20,7 @@ const EntryAnimation = () => {
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, delay: 3.0 }} // 梯形+Logo飛完（3秒）後開始淡出（1.5秒）
+            transition={{ duration: 1.5, delay: 6.0 }} // 梯形+Logo飛完（6秒）後開始淡出（1.5秒）
             className="fixed inset-0 z-[9999] bg-black pointer-events-none"
           />
 
@@ -31,12 +31,12 @@ const EntryAnimation = () => {
             exit={{ opacity: 0 }}
             transition={{
               x: {
-                duration: 3.0, // 梯形飛行：3秒（放慢）
+                duration: 3.0, // 梯形飛行：3秒
                 ease: [0.6, 0.05, 0.01, 0.9]
               },
               opacity: {
                 duration: 1.5, // 淡出：1.5秒
-                delay: 3.0 // 飛完（3秒）後立即開始淡出
+                delay: 6.0 // Logo飛完（6秒）後開始淡出
               }
             }}
             className="fixed top-0 left-0 w-full h-full z-[10000] pointer-events-none overflow-hidden"
@@ -63,23 +63,29 @@ const EntryAnimation = () => {
               {/* 添加邊緣高光 */}
               <div className="absolute inset-0 border-r-4 border-white/20" />
             </div>
+          </motion.div>
 
-            {/* DTMRS Logo動畫 - 跟著梯形一起飛過去 */}
-            <motion.div
-              initial={{ x: '100%', opacity: 1, scale: 1 }}
-              animate={{ x: '-150%' }}
-              transition={{
-                x: {
-                  duration: 3.0, // 跟梯形同步飛行：3秒
-                  ease: [0.6, 0.05, 0.01, 0.9]
-                }
-              }}
-              className="absolute inset-0 flex items-center justify-center"
-            >
-              <div className="text-white text-8xl md:text-9xl font-bold tracking-wider drop-shadow-2xl">
-                DTMRS
-              </div>
-            </motion.div>
+          {/* DTMRS Logo動畫 - 獨立飛行（在梯形上方，梯形飛完才飛） */}
+          <motion.div
+            initial={{ x: '100%', opacity: 1 }}
+            animate={{ x: '-150%' }}
+            exit={{ opacity: 0 }}
+            transition={{
+              x: {
+                duration: 3.0, // Logo飛行：3秒
+                delay: 3.0, // 等梯形飛完（3秒）後才開始飛
+                ease: [0.6, 0.05, 0.01, 0.9]
+              },
+              opacity: {
+                duration: 1.5, // 淡出：1.5秒
+                delay: 6.0 // 飛完（6秒）後開始淡出
+              }
+            }}
+            className="fixed top-0 left-0 w-full h-full z-[10001] pointer-events-none flex items-center justify-center"
+          >
+            <div className="text-white text-8xl md:text-9xl font-bold tracking-wider drop-shadow-2xl">
+              DTMRS
+            </div>
           </motion.div>
         </>
       )}
