@@ -20,6 +20,23 @@ npm run build
 ```
 
 ### 4. 部署到 GitHub Pages
+
+#### 🤖 自動部署（推薦）
+專案已配置 GitHub Actions，推送到 main 分支時會自動部署：
+
+```bash
+git add .
+git commit -m "your commit message"
+git push origin main
+```
+
+**首次使用需要在 GitHub 設定：**
+1. 前往 `https://github.com/yanchen184/dtmrs-website/settings/pages`
+2. 在 "Build and deployment" 下的 "Source" 選擇 **GitHub Actions**
+3. 推送程式碼後，前往 Actions 頁面查看部署狀態
+4. 部署完成後訪問：https://yanchen184.github.io/dtmrs-website/
+
+#### 📦 手動部署（備用方案）
 ```bash
 npm run deploy
 ```
@@ -69,7 +86,14 @@ npx playwright show-report
 
 ## 📝 版本資訊
 
-**當前版本：v2.4.0**
+**當前版本：v2.8.0**
+
+### v2.8.0 更新內容（2024.11.19）
+- ✅ 修復 GitHub Pages 影片路徑問題
+- ✅ 統一所有影片路徑為 `/dtmrs-website/assets/videos/`
+- ✅ 配置 GitHub Actions 自動部署
+- ✅ 更新 Home.tsx, Events.tsx, ScrollHome.tsx 影片路徑
+- ✅ Console 輸出版本號碼 v2.8.0
 
 ### v2.4.0 更新內容
 - ✅ 修復所有圖片路徑（GitHub Pages 相容）
