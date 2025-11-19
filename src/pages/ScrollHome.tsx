@@ -28,7 +28,7 @@ const ScrollHome = () => {
           <div className="absolute inset-0 flex items-center justify-center text-center z-10">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : 50 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 1 }}
             >
               <h1 className="text-7xl md:text-9xl font-bold text-white mb-6 drop-shadow-2xl">
