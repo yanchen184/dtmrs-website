@@ -18,9 +18,9 @@ const ScrollHome = () => {
 
     // 預載入影片
     const videos = [
-      '/assets/videos/20250420 SGT6 DTMRS Asurada.mp4',
-      '/assets/videos/20241208 DTM東京車展60sec.mp4',
-      '/assets/videos/20250112 DTMRS Autosalon序HD .mp4'
+      '/dtmrs-website/assets/videos/20250420 SGT6 DTMRS Asurada.mp4',
+      '/dtmrs-website/assets/videos/20241208 DTM東京車展60sec.mp4',
+      '/dtmrs-website/assets/videos/20250112 DTMRS Autosalon序HD .mp4'
     ];
 
     videos.forEach(src => {
@@ -58,7 +58,7 @@ const ScrollHome = () => {
       <Sidebar />
       <ContactButtons />
 
-      <div className="scroll-container" ref={containerRef}>
+      <div className="scroll-container ml-64" ref={containerRef}>
 
         {/* Section 1: Hero - 全螢幕影片背景 */}
         <section className="h-screen w-full relative overflow-hidden" id="home" ref={heroRef}>
@@ -75,7 +75,7 @@ const ScrollHome = () => {
               className="w-full h-full object-cover"
             >
               <source
-                src="/assets/videos/20250420 SGT6 DTMRS Asurada.mp4"
+                src="/dtmrs-website/assets/videos/20250420 SGT6 DTMRS Asurada.mp4"
                 type="video/mp4"
               />
             </video>
@@ -131,7 +131,7 @@ const ScrollHome = () => {
               transition={{ duration: 0.3 }}
             >
               <img
-                src="/assets/images/DIRK7360.jpg"
+                src="/dtmrs-website/assets/images/DIRK7360.jpg"
                 alt="DTM Racing Team"
                 className="w-full h-full object-cover"
               />
@@ -154,7 +154,7 @@ const ScrollHome = () => {
               transition={{ duration: 0.3 }}
             >
               <img
-                src="/assets/images/DIR06525.jpg"
+                src="/dtmrs-website/assets/images/DIR06525.jpg"
                 alt="Performance Upgrade"
                 className="w-full h-full object-cover"
               />
@@ -189,7 +189,7 @@ const ScrollHome = () => {
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source
-                src="/assets/videos/20241208 DTM東京車展60sec.mp4"
+                src="/dtmrs-website/assets/videos/20241208 DTM東京車展60sec.mp4"
                 type="video/mp4"
               />
             </video>
@@ -230,7 +230,7 @@ const ScrollHome = () => {
               transition={{ duration: 0.3 }}
             >
               <img
-                src="/assets/images/DIR06557.jpg"
+                src="/dtmrs-website/assets/images/DIR06557.jpg"
                 alt="Feature 1"
                 className="w-full h-full object-cover"
                 style={{ minHeight: '600px' }}
@@ -272,7 +272,7 @@ const ScrollHome = () => {
               transition={{ duration: 0.3 }}
             >
               <img
-                src="/assets/images/DIR06244.jpg"
+                src="/dtmrs-website/assets/images/DIR06244.jpg"
                 alt="Feature 2"
                 className="w-full h-full object-cover"
                 style={{ minHeight: '600px' }}
@@ -325,7 +325,7 @@ const ScrollHome = () => {
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source
-                src="/assets/videos/20250112 DTMRS Autosalon序HD .mp4"
+                src="/dtmrs-website/assets/videos/20250112 DTMRS Autosalon序HD .mp4"
                 type="video/mp4"
               />
             </video>
