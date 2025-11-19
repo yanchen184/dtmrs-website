@@ -1,23 +1,32 @@
-import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 const menuItems = [
-  { path: '/', label: 'DTM' },
-  { path: '/about', label: '關於我們' },
-  { path: '/products', label: '販售商品' },
-  { path: '/events', label: '參與過的活動' },
-  { path: '/gallery', label: '活動剪影' },
-  { path: '/catalog', label: '電子型錄' },
+  { href: '#home', label: 'DTM' },
+  { href: '#about', label: '關於我們' },
+  { href: '#tokyo', label: '東京車展' },
+  { href: '#autosalon', label: 'Auto Salon' },
+  { href: '#services', label: '改裝服務' },
+  { href: '#gallery', label: '活動剪影' },
+  { href: '#contact', label: '聯繫我們' },
 ];
 
 const Sidebar = () => {
-  const location = useLocation();
+  const [activeSection, setActiveSection] = useState('#home');
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(href);
+    }
+  };
 
   return (
     <motion.div
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.8 }}
       className="fixed left-0 top-0 h-full w-64 bg-dtm-red z-50"
       style={{
         clipPath: 'polygon(0 0, 100% 10%, 100% 90%, 0 100%)',
@@ -27,31 +36,31 @@ const Sidebar = () => {
         {/* Logo */}
         <div className="mb-12">
           <img
-            src="/assets/logo/白字DTM LOGO.png"
+            src="/dtmrs-website/assets/logo/白字DTM LOGO.png"
             alt="DTM Logo"
             className="w-full h-auto"
           />
         </div>
 
         {/* Menu Items */}
-        <nav className="flex-1 space-y-4">
+        <nav className="flex-1 space-y-3">
           {menuItems.map((item, index) => (
             <motion.div
-              key={item.path}
+              key={item.href}
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.1 * index + 0.5 }}
+              transition={{ delay: 0.1 * index + 0.3 }}
             >
-              <Link
-                to={item.path}
-                className={`block py-3 px-4 text-white text-lg font-medium transition-all duration-300 hover:bg-white/20 rounded ${
-                  location.pathname === item.path
+              <button
+                onClick={() => scrollToSection(item.href)}
+                className={`w-full text-left py-3 px-4 text-white text-lg font-medium transition-all duration-300 hover:bg-white/20 rounded ${
+                  activeSection === item.href
                     ? 'bg-white/30 border-l-4 border-white'
                     : ''
                 }`}
               >
                 {item.label}
-              </Link>
+              </button>
             </motion.div>
           ))}
         </nav>
@@ -63,8 +72,6 @@ const Sidebar = () => {
           <button className="hover:underline">JP</button>
           <span>|</span>
           <button className="hover:underline">EN</button>
-          <span>|</span>
-          <button className="hover:underline">Q微博</button>
         </div>
       </div>
     </motion.div>
