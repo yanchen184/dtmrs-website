@@ -24,55 +24,104 @@ const Sidebar = () => {
 
   return (
     <motion.div
-      initial={{ x: -100, opacity: 0 }}
+      initial={{ x: -300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      className="fixed left-0 top-0 h-full w-64 bg-gradient-to-br from-red-600 to-red-700 z-50"
+      transition={{ duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }}
+      className="fixed left-0 top-0 h-full w-72 z-50"
       style={{
-        clipPath: 'polygon(0 0, 85% 5%, 100% 50%, 85% 95%, 0 100%)',
+        background: 'linear-gradient(135deg, #CC0000 0%, #990000 100%)',
+        clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0 100%)',
+        boxShadow: '4px 0 20px rgba(0, 0, 0, 0.3)',
       }}
     >
-      <div className="flex flex-col h-full p-8 pt-12">
+      <div className="flex flex-col h-full p-8 pt-16 pr-12">
         {/* Logo */}
-        <div className="mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="mb-12"
+        >
           <img
             src="/dtmrs-website/assets/logo/白字DTM LOGO.png"
             alt="DTM Logo"
-            className="w-full h-auto"
+            className="w-full h-auto drop-shadow-lg"
           />
-        </div>
+        </motion.div>
 
         {/* Menu Items */}
-        <nav className="flex-1 space-y-2">
+        <nav className="flex-1 space-y-1">
           {menuItems.map((item, index) => (
             <motion.div
               key={item.href}
-              initial={{ x: -50, opacity: 0 }}
+              initial={{ x: -30, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.1 * index + 0.4 }}
+              transition={{
+                delay: 0.4 + index * 0.08,
+                duration: 0.5,
+                ease: [0.6, 0.05, 0.01, 0.9]
+              }}
             >
               <button
                 onClick={() => scrollToSection(item.href)}
-                className={`w-full text-left py-2 px-4 text-white text-base font-medium transition-all duration-300 hover:bg-white/20 rounded ${
-                  activeSection === item.href
-                    ? 'bg-white/30 border-l-4 border-white'
-                    : ''
-                }`}
+                className={`
+                  w-full text-left py-3 px-5 text-white font-medium
+                  transition-all duration-300 rounded-sm
+                  relative overflow-hidden group
+                  ${activeSection === item.href
+                    ? 'bg-white/25 shadow-lg'
+                    : 'hover:bg-white/10'
+                  }
+                `}
               >
-                {item.label}
+                {/* 左側高亮條 */}
+                <span
+                  className={`
+                    absolute left-0 top-0 h-full w-1 bg-white
+                    transition-all duration-300
+                    ${activeSection === item.href
+                      ? 'opacity-100'
+                      : 'opacity-0 group-hover:opacity-50'
+                    }
+                  `}
+                />
+
+                {/* 文字 */}
+                <span className="relative z-10 text-base tracking-wide">
+                  {item.label}
+                </span>
+
+                {/* 背景光效 */}
+                <span
+                  className="
+                    absolute inset-0 bg-white/5 opacity-0
+                    group-hover:opacity-100 transition-opacity duration-300
+                  "
+                />
               </button>
             </motion.div>
           ))}
         </nav>
 
         {/* Language Selector */}
-        <div className="mt-auto flex gap-2 text-white text-sm pb-6">
-          <button className="hover:underline">TW</button>
-          <span>|</span>
-          <button className="hover:underline">JP</button>
-          <span>|</span>
-          <button className="hover:underline">EN</button>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.6 }}
+          className="mt-auto flex gap-3 text-white text-sm font-medium pb-8"
+        >
+          <button className="hover:text-white/80 transition-colors duration-200 tracking-wider">
+            TW
+          </button>
+          <span className="text-white/50">|</span>
+          <button className="hover:text-white/80 transition-colors duration-200 tracking-wider">
+            JP
+          </button>
+          <span className="text-white/50">|</span>
+          <button className="hover:text-white/80 transition-colors duration-200 tracking-wider">
+            EN
+          </button>
+        </motion.div>
       </div>
     </motion.div>
   );
