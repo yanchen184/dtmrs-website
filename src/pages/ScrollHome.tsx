@@ -29,7 +29,7 @@ const ScrollHome = () => {
       video.load();
     });
 
-    console.log('DTMRS Website v2.0.0 - Visual Focus Edition');
+    console.log('DTMRS Website v2.8.0 - 修復 GitHub Pages 影片路徑問題');
   }, []);
 
   // 視差效果

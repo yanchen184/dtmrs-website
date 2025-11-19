@@ -8,7 +8,7 @@ const events = [
     location: '東京國際展覽中心',
     description: '參與日本最大規模的汽車展覽，展示最新的改裝技術與產品',
     image: '/assets/images/DFM03708.jpg',
-    video: '/assets/videos/20241208 DTM東京車展60sec.mp4',
+    video: '/dtmrs-website/assets/videos/20241208 DTM東京車展60sec.mp4',
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const events = [
     location: '幕張展覽館',
     description: '亞洲最大改裝車展，展出頂級改裝作品',
     image: '/assets/images/DIR06483.jpg',
-    video: '/assets/videos/20250112 DTMRS Autosalon序HD .mp4',
+    video: '/dtmrs-website/assets/videos/20250112 DTMRS Autosalon序HD .mp4',
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const events = [
     location: 'Fuji Speedway',
     description: '參與 Super GT 第六站賽事，展現賽車技術',
     image: '/assets/images/DIRK7360.jpg',
-    video: '/assets/videos/20250420 SGT6 DTMRS Asurada.mp4',
+    video: '/dtmrs-website/assets/videos/20250420 SGT6 DTMRS Asurada.mp4',
   },
 ];
 

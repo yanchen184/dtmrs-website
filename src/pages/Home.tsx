@@ -72,7 +72,7 @@ const Home = () => {
               className="w-full h-full object-cover"
             >
               <source
-                src="/assets/videos/20250420 SGT6 DTMRS Asurada.mp4"
+                src="/dtmrs-website/assets/videos/20250420 SGT6 DTMRS Asurada.mp4"
                 type="video/mp4"
               />
               您的瀏覽器不支援影片播放。
