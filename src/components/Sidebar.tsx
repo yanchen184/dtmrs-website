@@ -24,13 +24,14 @@ const Sidebar = () => {
 
   return (
     <motion.div
-      initial={{ x: -300, opacity: 0 }}
+      initial={{ x: -600, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }}
-      className="fixed left-0 top-0 h-full w-72 z-50"
+      className="fixed left-0 top-0 h-full z-50"
       style={{
+        width: '576px', // 從 w-72 (288px) 放大一倍到 576px
         background: 'linear-gradient(135deg, #CC0000 0%, #990000 100%)',
-        clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0 100%)',
+        clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)', // 調整梯形角度
         boxShadow: '4px 0 20px rgba(0, 0, 0, 0.3)',
       }}
     >
