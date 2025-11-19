@@ -17,7 +17,7 @@ const ScrollHome = () => {
     setIsLoaded(true);
 
     // 移除預載入邏輯，改用 preload="metadata" 提升效能
-    console.log('DTMRS Website v2.9.1 - 優化影片載入速度');
+    console.log('DTMRS Website v2.9.2 - Logo 閃爍動畫優化 UX 體驗');
   }, []);
 
   // 視差效果
