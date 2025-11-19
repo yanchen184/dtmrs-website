@@ -117,59 +117,119 @@ const ScrollHome = () => {
           </motion.div>
         </section>
 
-        {/* Section 2: 視覺展示區 - 大圖片為主 */}
-        <section className="min-h-screen w-full bg-black relative overflow-hidden" id="showcase" ref={aboutRef}>
+        {/* Section 2: 關於我們 */}
+        <section className="min-h-screen w-full bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden py-20" id="about" ref={aboutRef}>
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={fadeInVariants}
-            className="grid grid-cols-1 md:grid-cols-2 h-screen"
+            className="container mx-auto px-8"
           >
-            {/* 左側大圖 */}
+            {/* 標題 */}
             <motion.div
-              className="relative h-full overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
             >
-              <img
-                src="/dtmrs-website/assets/images/DIRK7360.jpg"
-                alt="DTM Racing Team"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-              <motion.div
-                className="absolute bottom-10 left-10 text-white"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                <h3 className="text-4xl font-bold mb-2">專業團隊</h3>
-                <p className="text-lg text-white/80">10年以上賽車改裝經驗</p>
-              </motion.div>
+              <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                關於 DTM Racing Sport
+              </h2>
+              <div className="w-32 h-1 bg-red-600 mx-auto"></div>
             </motion.div>
 
-            {/* 右側大圖 */}
+            {/* 公司簡介 */}
             <motion.div
-              className="relative h-full overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
+              className="grid md:grid-cols-2 gap-12 mb-20"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              <div className="space-y-6 text-gray-300">
+                <h3 className="text-3xl font-bold text-white mb-4">專業賽車改裝團隊</h3>
+                <p className="text-lg leading-relaxed">
+                  DTM Racing Sport 成立於 2014 年，是台灣領先的專業賽車改裝團隊。我們專注於高性能車輛的改裝與調校，
+                  為追求極致駕馭體驗的車主提供最專業的服務。
+                </p>
+                <p className="text-lg leading-relaxed">
+                  我們的團隊擁有超過 10 年的賽車改裝經驗，參與過多項國際賽事，累積了豐富的實戰經驗。
+                  從引擎調校、底盤強化到空力套件，我們提供全方位的改裝方案，讓每一輛車都能發揮極致性能。
+                </p>
+                <p className="text-lg leading-relaxed">
+                  我們堅持使用高品質零件，並採用先進的調校設備，確保每一項改裝都達到最佳效果。
+                  無論是街道駕駛還是賽道競技，DTM Racing Sport 都能為您打造完美的駕馭機器。
+                </p>
+              </div>
+
+              <div className="relative">
+                <img
+                  src="/dtmrs-website/assets/images/DIRK7360.jpg"
+                  alt="DTM Racing Team"
+                  className="w-full h-full object-cover rounded-lg shadow-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"></div>
+              </div>
+            </motion.div>
+
+            {/* 核心價值 */}
+            <motion.div
+              className="grid md:grid-cols-3 gap-8 mb-20"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="bg-gray-800/50 p-8 rounded-lg border border-red-600/20 hover:border-red-600/50 transition-all">
+                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                  <span className="text-3xl">🏁</span>
+                </div>
+                <h4 className="text-2xl font-bold text-white text-center mb-4">專業技術</h4>
+                <p className="text-gray-300 text-center leading-relaxed">
+                  擁有國際認證的專業技師團隊，採用先進的改裝技術與設備，確保每一項工程都達到最高標準。
+                </p>
+              </div>
+
+              <div className="bg-gray-800/50 p-8 rounded-lg border border-red-600/20 hover:border-red-600/50 transition-all">
+                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                  <span className="text-3xl">🏆</span>
+                </div>
+                <h4 className="text-2xl font-bold text-white text-center mb-4">賽道實證</h4>
+                <p className="text-gray-300 text-center leading-relaxed">
+                  參與多項國際賽事，在賽道上驗證我們的改裝技術。實戰經驗讓我們更了解性能車輛的極限與潛力。
+                </p>
+              </div>
+
+              <div className="bg-gray-800/50 p-8 rounded-lg border border-red-600/20 hover:border-red-600/50 transition-all">
+                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                  <span className="text-3xl">⚙️</span>
+                </div>
+                <h4 className="text-2xl font-bold text-white text-center mb-4">客製化服務</h4>
+                <p className="text-gray-300 text-center leading-relaxed">
+                  根據每位車主的需求與預算，量身打造最適合的改裝方案。從街道到賽道，我們都能滿足您的需求。
+                </p>
+              </div>
+            </motion.div>
+
+            {/* 團隊照片 */}
+            <motion.div
+              className="relative h-96 rounded-lg overflow-hidden"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
             >
               <img
                 src="/dtmrs-website/assets/images/DIR06525.jpg"
-                alt="Performance Upgrade"
+                alt="Team Workshop"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-              <motion.div
-                className="absolute bottom-10 right-10 text-white text-right"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                <h3 className="text-4xl font-bold mb-2">頂級改裝</h3>
-                <p className="text-lg text-white/80">賽道級性能提升</p>
-              </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end">
+                <div className="p-12 w-full">
+                  <h3 className="text-4xl font-bold text-white mb-4">打造您的夢想座駕</h3>
+                  <p className="text-xl text-gray-200 max-w-2xl">
+                    DTM Racing Sport - 讓每一次駕駛都成為極致體驗
+                  </p>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         </section>
