@@ -1,7 +1,7 @@
 import ScrollHome from './pages/ScrollHome';
 
 // 版本號
-const VERSION = 'v2.0.0';
+const VERSION = 'v2.1.0';
 
 function App() {
   // 在 console 輸出版本號
