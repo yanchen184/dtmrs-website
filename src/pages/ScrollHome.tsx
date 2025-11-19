@@ -17,7 +17,7 @@ const ScrollHome = () => {
     setIsLoaded(true);
 
     // 移除預載入邏輯，改用 preload="metadata" 提升效能
-    console.log('DTMRS Website v2.9.3 - Logo 跟梯形同步飛行');
+    console.log('DTMRS Website v2.9.4 - 梯形飛完後 Logo 才飛');
   }, []);
 
   // 視差效果
