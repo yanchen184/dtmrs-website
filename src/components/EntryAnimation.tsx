@@ -7,7 +7,7 @@ const EntryAnimation = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowAnimation(false);
-    }, 3500); // 延長到 3500ms，給影片更多載入時間
+    }, 4200); // 總時間 = 梯形飛行(2.5秒) + 淡出(1.7秒) = 4.2秒
 
     return () => clearTimeout(timer);
   }, []);
@@ -20,7 +20,7 @@ const EntryAnimation = () => {
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.0, delay: 1.8 }} // 梯形飛完（1.8秒）後開始慢慢淡出
+            transition={{ duration: 1.7, delay: 2.5 }} // 梯形飛完（2.5秒）後開始慢慢淡出（1.7秒）
             className="fixed inset-0 z-[9999] bg-black pointer-events-none"
           />
 
@@ -31,12 +31,12 @@ const EntryAnimation = () => {
             exit={{ opacity: 0 }}
             transition={{
               x: {
-                duration: 1.8, // 延長飛行時間，從 0.9秒增加到 1.8秒
+                duration: 2.5, // 梯形飛得更慢：2.5秒
                 ease: [0.6, 0.05, 0.01, 0.9]
               },
               opacity: {
-                duration: 1.0, // 淡出持續 1 秒（慢慢淡出）
-                delay: 1.8 // 梯形飛完（1.8秒）後立即開始淡出
+                duration: 1.7, // 淡出更慢：1.7秒
+                delay: 2.5 // 梯形飛完（2.5秒）後立即開始淡出
               }
             }}
             className="fixed top-0 left-0 w-full h-full z-[10000] pointer-events-none overflow-hidden"
