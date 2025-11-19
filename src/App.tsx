@@ -16,7 +16,7 @@ function App() {
   console.log('%c Developed by DTM Racing Sport', 'color: #0066CC; font-size: 12px;');
 
   return (
-    <Router>
+    <Router basename="/dtmrs-website">
       <Routes>
         {/* Home page without layout (full screen video) */}
         <Route path="/" element={<Home />} />
