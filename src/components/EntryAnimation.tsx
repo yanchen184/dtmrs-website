@@ -20,7 +20,7 @@ const EntryAnimation = () => {
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.0, delay: 1.5 }} // 延長淡出時間，延遲開始
+            transition={{ duration: 1.0, delay: 1.8 }} // 梯形飛完（1.8秒）後開始慢慢淡出
             className="fixed inset-0 z-[9999] bg-black pointer-events-none"
           />
 
@@ -35,8 +35,8 @@ const EntryAnimation = () => {
                 ease: [0.6, 0.05, 0.01, 0.9]
               },
               opacity: {
-                duration: 1.0, // 延長淡出時間
-                delay: 1.5 // 延遲淡出開始時間
+                duration: 1.0, // 淡出持續 1 秒（慢慢淡出）
+                delay: 1.8 // 梯形飛完（1.8秒）後立即開始淡出
               }
             }}
             className="fixed top-0 left-0 w-full h-full z-[10000] pointer-events-none overflow-hidden"
