@@ -16,20 +16,8 @@ const ScrollHome = () => {
   useEffect(() => {
     setIsLoaded(true);
 
-    // 預載入影片
-    const videos = [
-      '/dtmrs-website/assets/videos/20250420 SGT6 DTMRS Asurada.mp4',
-      '/dtmrs-website/assets/videos/20241208 DTM東京車展60sec.mp4',
-      '/dtmrs-website/assets/videos/20250112 DTMRS Autosalon序HD .mp4'
-    ];
-
-    videos.forEach(src => {
-      const video = document.createElement('video');
-      video.src = src;
-      video.load();
-    });
-
-    console.log('DTMRS Website v2.8.0 - 修復 GitHub Pages 影片路徑問題');
+    // 移除預載入邏輯，改用 preload="metadata" 提升效能
+    console.log('DTMRS Website v2.9.0 - 優化影片載入速度與調整影片順序');
   }, []);
 
   // 視差效果
@@ -80,10 +68,11 @@ const ScrollHome = () => {
               loop
               muted
               playsInline
+              preload="metadata"
               className="w-full h-full object-cover"
             >
               <source
-                src="/dtmrs-website/assets/videos/20250420 SGT6 DTMRS Asurada.mp4"
+                src="/dtmrs-website/assets/videos/20241208 DTM東京車展60sec.mp4"
                 type="video/mp4"
               />
             </video>
@@ -259,11 +248,12 @@ const ScrollHome = () => {
               loop
               muted
               playsInline
+              preload="metadata"
               className="absolute w-full h-full object-cover"
               style={{ left: 0, top: 0, right: 0, bottom: 0 }}
             >
               <source
-                src="/dtmrs-website/assets/videos/20241208 DTM東京車展60sec.mp4"
+                src="/dtmrs-website/assets/videos/20250420 SGT6 DTMRS Asurada.mp4"
                 type="video/mp4"
               />
             </video>
@@ -281,11 +271,11 @@ const ScrollHome = () => {
               transition={{ delay: 0.3, duration: 0.8 }}
             >
               <h2 className="text-6xl font-bold text-white mb-6">
-                東京車展 2024
+                Super GT Round 6
               </h2>
               <div className="w-24 h-1 bg-red-500 mb-6"></div>
               <p className="text-xl text-white/90 leading-relaxed">
-                參與亞洲最大規模的汽車展覽
+                參與 Super GT 第六站賽事，展現賽車技術
               </p>
             </motion.div>
           </motion.div>
@@ -402,6 +392,7 @@ const ScrollHome = () => {
               loop
               muted
               playsInline
+              preload="metadata"
               className="absolute w-full h-full object-cover"
               style={{ left: 0, top: 0, right: 0, bottom: 0 }}
             >
