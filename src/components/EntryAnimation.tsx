@@ -7,7 +7,7 @@ const EntryAnimation = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowAnimation(false);
-    }, 4200); // 總時間 = 梯形飛行(2.5秒) + 淡出(1.7秒) = 4.2秒
+    }, 4000); // 總時間 = 梯形(1.5秒) + Logo閃爍(1.5秒) + 淡出(1秒) = 4秒
 
     return () => clearTimeout(timer);
   }, []);
@@ -20,7 +20,7 @@ const EntryAnimation = () => {
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.7, delay: 2.5 }} // 梯形飛完（2.5秒）後開始慢慢淡出（1.7秒）
+            transition={{ duration: 1.0, delay: 3.0 }} // Logo閃爍完（3秒）後開始淡出（1秒）
             className="fixed inset-0 z-[9999] bg-black pointer-events-none"
           />
 
@@ -31,12 +31,12 @@ const EntryAnimation = () => {
             exit={{ opacity: 0 }}
             transition={{
               x: {
-                duration: 2.5, // 梯形飛得更慢：2.5秒
+                duration: 1.5, // 梯形飛行：1.5秒
                 ease: [0.6, 0.05, 0.01, 0.9]
               },
               opacity: {
-                duration: 1.7, // 淡出更慢：1.7秒
-                delay: 2.5 // 梯形飛完（2.5秒）後立即開始淡出
+                duration: 1.0, // 淡出：1秒
+                delay: 3.0 // Logo閃爍完（3秒）後開始淡出
               }
             }}
             className="fixed top-0 left-0 w-full h-full z-[10000] pointer-events-none overflow-hidden"
@@ -64,11 +64,18 @@ const EntryAnimation = () => {
               <div className="absolute inset-0 border-r-4 border-white/20" />
             </div>
 
-            {/* DTMRS Logo動畫 */}
+            {/* DTMRS Logo動畫 - 淡入後閃爍 */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }} // 延長出現時間，更柔和
+              animate={{
+                opacity: [0, 1, 1, 1, 0.2, 1, 0.2, 1, 0.2, 1], // 淡入 → 保持 → 閃爍3次（亮→暗→亮）
+                scale: [0.8, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+              }}
+              transition={{
+                duration: 3.0,
+                times: [0, 0.2, 0.5, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1.0], // 精確控制時間點
+                ease: "easeInOut"
+              }}
               className="absolute inset-0 flex items-center justify-center"
             >
               <div className="text-white text-8xl md:text-9xl font-bold tracking-wider drop-shadow-2xl">
