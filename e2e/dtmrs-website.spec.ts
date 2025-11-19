@@ -204,4 +204,62 @@ test.describe('DTMRS 網站完整測試', () => {
     const hasShadow = await page.locator('[class*="shadow"]').count();
     expect(hasShadow).toBeGreaterThan(0);
   });
+
+  test('Sidebar 遮擋測試 - 確保內容不被遮擋', async ({ page }) => {
+    await page.waitForTimeout(2500);
+
+    // 1. 檢查 Sidebar 寬度
+    const sidebar = page.locator('nav').first();
+    const sidebarBox = await sidebar.boundingBox();
+
+    if (sidebarBox) {
+      console.log(`Sidebar 寬度: ${sidebarBox.width}px`);
+      // Sidebar 應該是 576px
+      expect(sidebarBox.width).toBeGreaterThanOrEqual(570);
+    }
+
+    // 2. 檢查主內容容器的 margin-left
+    const mainContainer = page.locator('.scroll-container').first();
+    const marginLeft = await mainContainer.evaluate((el) => {
+      return window.getComputedStyle(el).marginLeft;
+    });
+
+    console.log(`主內容 margin-left: ${marginLeft}`);
+    // margin-left 應該是 576px
+    expect(marginLeft).toBe('576px');
+
+    // 3. 檢查重要文字元素是否完全可見且未被遮擋
+    const h1 = page.locator('h1').first();
+    const h1Box = await h1.boundingBox();
+
+    if (h1Box && sidebarBox) {
+      // 標題的左邊界應該在 Sidebar 右邊界之後
+      console.log(`H1 左邊界: ${h1Box.x}px, Sidebar 右邊界: ${sidebarBox.x + sidebarBox.width}px`);
+      expect(h1Box.x).toBeGreaterThan(sidebarBox.x + sidebarBox.width - 50); // 允許 50px 誤差
+    }
+
+    // 4. 滾動到「關於我們」區域，檢查文字是否被遮擋
+    await page.click('text=關於我們');
+    await page.waitForTimeout(1000);
+
+    const aboutHeading = page.locator('h2').first();
+    const aboutBox = await aboutHeading.boundingBox();
+
+    if (aboutBox && sidebarBox) {
+      console.log(`關於我們標題左邊界: ${aboutBox.x}px, Sidebar 右邊界: ${sidebarBox.x + sidebarBox.width}px`);
+      expect(aboutBox.x).toBeGreaterThan(sidebarBox.x + sidebarBox.width - 50);
+    }
+
+    // 5. 檢查段落文字是否被遮擋
+    const paragraphs = page.locator('p').all();
+    const firstParagraph = (await paragraphs)[0];
+
+    if (firstParagraph) {
+      const pBox = await firstParagraph.boundingBox();
+      if (pBox && sidebarBox) {
+        console.log(`段落左邊界: ${pBox.x}px, Sidebar 右邊界: ${sidebarBox.x + sidebarBox.width}px`);
+        expect(pBox.x).toBeGreaterThan(sidebarBox.x + sidebarBox.width - 50);
+      }
+    }
+  });
 });

@@ -60,7 +60,7 @@ const ScrollHome = () => {
       <Sidebar />
       <ContactButtons />
 
-      <div className="scroll-container ml-64" ref={containerRef}>
+      <div className="scroll-container" style={{ marginLeft: '576px' }} ref={containerRef}>
 
         {/* Section 1: Hero - 全螢幕影片背景 */}
         <section className="h-screen w-full relative overflow-hidden" id="home" ref={heroRef}>
