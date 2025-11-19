@@ -60,14 +60,20 @@ const ScrollHome = () => {
       <Sidebar />
       <ContactButtons />
 
-      <div className="scroll-container" style={{ marginLeft: '576px' }} ref={containerRef}>
+      <div className="scroll-container" ref={containerRef}>
 
         {/* Section 1: Hero - 全螢幕影片背景 */}
         <section className="h-screen w-full relative overflow-hidden" id="home" ref={heroRef}>
-          {/* 影片背景 */}
+          {/* 影片背景 - 延伸到整個畫面包括 Sidebar 下方 */}
           <motion.div
-            className="absolute inset-0 w-full h-full"
-            style={{ y }}
+            className="absolute w-full h-full"
+            style={{
+              y,
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0
+            }}
           >
             <video
               autoPlay
@@ -86,10 +92,13 @@ const ScrollHome = () => {
           {/* 漸層遮罩 */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60"></div>
 
-          {/* 標題文字 */}
+          {/* 標題文字 - 保持在 Sidebar 右側 */}
           <motion.div
             className="absolute inset-0 flex items-center justify-center text-center z-10"
-            style={{ opacity }}
+            style={{
+              opacity,
+              paddingLeft: '600px' // 文字不被 Sidebar 遮擋
+            }}
           >
             <motion.div
               initial="hidden"
@@ -124,7 +133,8 @@ const ScrollHome = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeInVariants}
-            className="container mx-auto px-8"
+            className="px-8"
+            style={{ paddingLeft: 'max(600px, 3rem)' }} // 文字保持在 Sidebar 右側
           >
             {/* 標題 */}
             <motion.div
@@ -243,12 +253,14 @@ const ScrollHome = () => {
             variants={fadeInVariants}
             className="h-full relative"
           >
+            {/* 影片延伸到整個畫面 */}
             <video
               autoPlay
               loop
               muted
               playsInline
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute w-full h-full object-cover"
+              style={{ left: 0, top: 0, right: 0, bottom: 0 }}
             >
               <source
                 src="/dtmrs-website/assets/videos/20241208 DTM東京車展60sec.mp4"
@@ -256,10 +268,13 @@ const ScrollHome = () => {
               />
             </video>
 
-            {/* 左側文字面板 */}
+            {/* 漸層遮罩 */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+
+            {/* 文字面板 - 保持在 Sidebar 右側 */}
             <motion.div
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 p-12 max-w-xl"
+              className="absolute top-1/2 transform -translate-y-1/2 p-12 max-w-xl"
+              style={{ left: '600px' }} // 文字不被 Sidebar 遮擋
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -278,12 +293,14 @@ const ScrollHome = () => {
 
         {/* Section 4: 圖片牆 - Masonry Layout */}
         <section className="min-h-screen w-full bg-black py-2" id="gallery">
+          {/* 圖片從畫面左邊開始，可以延伸到 Sidebar 下方 */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={fadeInVariants}
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1"
+            style={{ position: 'relative', left: 0 }}
           >
             {/* 大圖片區塊 */}
             <motion.div
@@ -379,12 +396,14 @@ const ScrollHome = () => {
             variants={fadeInVariants}
             className="h-full relative"
           >
+            {/* 影片延伸到整個畫面 */}
             <video
               autoPlay
               loop
               muted
               playsInline
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute w-full h-full object-cover"
+              style={{ left: 0, top: 0, right: 0, bottom: 0 }}
             >
               <source
                 src="/dtmrs-website/assets/videos/20250112 DTMRS Autosalon序HD .mp4"
@@ -392,7 +411,7 @@ const ScrollHome = () => {
               />
             </video>
 
-            {/* 右側文字面板 */}
+            {/* 漸層遮罩 */}
             <div className="absolute inset-0 bg-gradient-to-l from-black/80 via-black/40 to-transparent"></div>
             <motion.div
               className="absolute right-0 top-1/2 transform -translate-y-1/2 p-12 max-w-xl text-right"
@@ -419,7 +438,8 @@ const ScrollHome = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={fadeInVariants}
-            className="container mx-auto px-4 py-20"
+            className="px-4 py-20"
+            style={{ paddingLeft: 'max(600px, 2rem)' }} // 文字保持在 Sidebar 右側
           >
             <motion.h2
               className="text-5xl md:text-6xl font-bold text-white text-center mb-16"
@@ -490,7 +510,8 @@ const ScrollHome = () => {
         {/* Section 7: 聯繫資訊 - 簡潔設計 */}
         <section className="h-screen w-full bg-gradient-to-br from-red-600 to-red-800 flex items-center" id="contact">
           <motion.div
-            className="container mx-auto px-12 text-center"
+            className="px-12 text-center w-full"
+            style={{ paddingLeft: 'max(620px, 3rem)' }} // 文字保持在 Sidebar 右側
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
