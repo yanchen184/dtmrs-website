@@ -36,19 +36,21 @@ const ScrollHome = () => {
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 0.8, 0.5, 0.3]);
 
-  // 淡進淡出動畫設定
+  // 淡進淡出動畫設定 - 加快速度
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 60 },
     visible: {
       opacity: 1,
-      y: 0
+      y: 0,
+      transition: { duration: 0.4 }
     }
   };
 
   const fadeInVariants = {
     hidden: { opacity: 0 },
     visible: {
-      opacity: 1
+      opacity: 1,
+      transition: { duration: 0.3 }
     }
   };
 
@@ -257,7 +259,7 @@ const ScrollHome = () => {
                 viewport={{ once: true }}
               >
                 <img
-                  src={`/assets/images/${img}`}
+                  src={`/dtmrs-website/assets/images/${img}`}
                   alt={`Gallery ${index + 1}`}
                   className="w-full h-[300px] object-cover"
                 />
@@ -298,7 +300,7 @@ const ScrollHome = () => {
                 viewport={{ once: true }}
               >
                 <img
-                  src={`/assets/images/${img}`}
+                  src={`/dtmrs-website/assets/images/${img}`}
                   alt={`Gallery Extra ${index + 1}`}
                   className="w-full h-[300px] object-cover"
                 />
@@ -409,7 +411,7 @@ const ScrollHome = () => {
                 >
                   <div className={`relative ${service.span ? 'h-[600px]' : 'h-[300px]'}`}>
                     <img
-                      src={`/assets/images/${service.img}`}
+                      src={`/dtmrs-website/assets/images/${service.img}`}
                       alt={service.title}
                       className="w-full h-full object-cover"
                     />
