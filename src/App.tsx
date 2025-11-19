@@ -8,7 +8,7 @@ import Gallery from './pages/Gallery';
 import Catalog from './pages/Catalog';
 
 // 版本號
-const VERSION = 'v1.0.1';
+const VERSION = 'v1.0.2';
 
 function App() {
   // 在 console 輸出版本號
