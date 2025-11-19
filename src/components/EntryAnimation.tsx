@@ -7,7 +7,7 @@ const EntryAnimation = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowAnimation(false);
-    }, 7500); // 總時間 = 梯形飛行(3秒) + Logo飛行(3秒) + 淡出(1.5秒) = 7.5秒
+    }, 3800); // 總時間 = 梯形飛行(1.5秒) + Logo飛行(1.5秒) + 淡出(0.8秒) = 3.8秒
 
     return () => clearTimeout(timer);
   }, []);
@@ -20,7 +20,7 @@ const EntryAnimation = () => {
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, delay: 6.0 }} // 梯形+Logo飛完（6秒）後開始淡出（1.5秒）
+            transition={{ duration: 0.8, delay: 3.0 }} // 梯形+Logo飛完（3秒）後開始淡出（0.8秒）
             className="fixed inset-0 z-[9999] bg-black pointer-events-none"
           />
 
@@ -31,12 +31,12 @@ const EntryAnimation = () => {
             exit={{ opacity: 0 }}
             transition={{
               x: {
-                duration: 3.0, // 梯形飛行：3秒
+                duration: 1.5, // 梯形飛行：1.5秒（加快）
                 ease: [0.6, 0.05, 0.01, 0.9]
               },
               opacity: {
-                duration: 1.5, // 淡出：1.5秒
-                delay: 6.0 // Logo飛完（6秒）後開始淡出
+                duration: 0.8, // 淡出：0.8秒
+                delay: 3.0 // Logo飛完（3秒）後開始淡出
               }
             }}
             className="fixed top-0 left-0 w-full h-full z-[10000] pointer-events-none overflow-hidden"
@@ -72,20 +72,22 @@ const EntryAnimation = () => {
             exit={{ opacity: 0 }}
             transition={{
               x: {
-                duration: 3.0, // Logo飛行：3秒
-                delay: 3.0, // 等梯形飛完（3秒）後才開始飛
+                duration: 1.5, // Logo飛行：1.5秒（加快）
+                delay: 1.5, // 等梯形飛完（1.5秒）後才開始飛
                 ease: [0.6, 0.05, 0.01, 0.9]
               },
               opacity: {
-                duration: 1.5, // 淡出：1.5秒
-                delay: 6.0 // 飛完（6秒）後開始淡出
+                duration: 0.8, // 淡出：0.8秒
+                delay: 3.0 // 飛完（3秒）後開始淡出
               }
             }}
             className="fixed top-0 left-0 w-full h-full z-[10001] pointer-events-none flex items-center justify-center"
           >
-            <div className="text-white text-8xl md:text-9xl font-bold tracking-wider drop-shadow-2xl">
-              DTMRS
-            </div>
+            <img
+              src="/dtmrs-website/assets/logo/白字DTM LOGO.png"
+              alt="DTM Logo"
+              className="w-96 h-auto drop-shadow-2xl"
+            />
           </motion.div>
         </>
       )}
