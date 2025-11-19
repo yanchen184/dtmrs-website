@@ -7,7 +7,7 @@ const EntryAnimation = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowAnimation(false);
-    }, 1200); // 加快到 1200ms，讓梯形飛過去就淡出
+    }, 3500); // 延長到 3500ms，給影片更多載入時間
 
     return () => clearTimeout(timer);
   }, []);
@@ -20,7 +20,7 @@ const EntryAnimation = () => {
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, delay: 0.8 }} // 梯形飛過去立即淡出
+            transition={{ duration: 1.0, delay: 1.5 }} // 延長淡出時間，延遲開始
             className="fixed inset-0 z-[9999] bg-black pointer-events-none"
           />
 
@@ -31,12 +31,12 @@ const EntryAnimation = () => {
             exit={{ opacity: 0 }}
             transition={{
               x: {
-                duration: 0.9, // 飛行速度
+                duration: 1.8, // 延長飛行時間，從 0.9秒增加到 1.8秒
                 ease: [0.6, 0.05, 0.01, 0.9]
               },
               opacity: {
-                duration: 0.3,
-                delay: 0.8 // 飛過去立即淡出
+                duration: 1.0, // 延長淡出時間
+                delay: 1.5 // 延遲淡出開始時間
               }
             }}
             className="fixed top-0 left-0 w-full h-full z-[10000] pointer-events-none overflow-hidden"
@@ -68,7 +68,7 @@ const EntryAnimation = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.1 }} // 加快出現
+              transition={{ duration: 0.8, delay: 0.2 }} // 延長出現時間，更柔和
               className="absolute inset-0 flex items-center justify-center"
             >
               <div className="text-white text-8xl md:text-9xl font-bold tracking-wider drop-shadow-2xl">
