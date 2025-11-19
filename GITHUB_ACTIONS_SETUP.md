@@ -1,22 +1,28 @@
 # 🚀 GitHub Actions 自動部署設定指南
 
-## ⚠️ 重要：首次使用必須完成以下設定
+## ✅ 無需額外設定！
 
-### 步驟 1：啟用 GitHub Actions 部署
+本專案使用 `gh-pages` npm 套件進行部署，**不需要修改 GitHub 設定**。
 
-1. **前往 GitHub Pages 設定頁面**
-   ```
-   https://github.com/yanchen184/dtmrs-website/settings/pages
-   ```
+推送到 main 分支後會自動：
+1. 建置專案
+2. 部署到 `gh-pages` 分支
+3. GitHub Pages 自動從 `gh-pages` 分支發布
 
-2. **修改 Source 設定**
-   - 在 "Build and deployment" 區塊
-   - 將 "Source" 從 **Deploy from a branch** 改為 **GitHub Actions**
+---
 
-   ![GitHub Actions 設定](https://docs.github.com/assets/cb-47267/mw-1440/images/help/pages/github-actions-source.webp)
+### 步驟 1：確認 GitHub Pages 設定
 
-3. **儲存設定**
-   - 點擊後會自動儲存，不需要額外按鈕
+前往：
+```
+https://github.com/yanchen184/dtmrs-website/settings/pages
+```
+
+確認設定為：
+- **Source**: Deploy from a branch
+- **Branch**: gh-pages / (root)
+
+（這應該已經是預設設定，無需修改）
 
 ---
 

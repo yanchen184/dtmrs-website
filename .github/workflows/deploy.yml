@@ -10,23 +10,17 @@ on:
 
 # 設置 GITHUB_TOKEN 的權限
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# 只允許一個並發部署，跳過正在運行和最新排隊之間的運行
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  contents: write  # 需要寫入權限來推送到 gh-pages 分支
 
 jobs:
-  # 建置工作
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: 📥 Checkout 程式碼
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 獲取完整歷史記錄
 
       - name: 🔧 設置 Node.js
         uses: actions/setup-node@v4
@@ -40,20 +34,10 @@ jobs:
       - name: 🏗️ 建置專案
         run: npm run build
 
-      - name: 📤 上傳建置結果
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
-
-  # 部署工作
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
       - name: 🚀 部署到 GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          npm run deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
