@@ -1,0 +1,12 @@
+# 排除大型影片檔案（超過 100MB）
+public/assets/videos/*.mp4
+
+# 排除 Git 相關檔案
+.git
+.gitignore
+
+# 排除開發相關
+node_modules
+*.log
+.env.local
+.env.*.local
