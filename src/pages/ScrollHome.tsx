@@ -83,10 +83,9 @@ const ScrollHome = () => {
 
           {/* 標題文字 - 保持在 Sidebar 右側 */}
           <motion.div
-            className="absolute inset-0 flex items-center justify-center text-center z-10"
+            className="absolute inset-0 flex items-center justify-center text-center z-10 md:pl-[600px] pt-16 md:pt-0"
             style={{
-              opacity,
-              paddingLeft: '600px' // 文字不被 Sidebar 遮擋
+              opacity
             }}
           >
             <motion.div
@@ -122,8 +121,7 @@ const ScrollHome = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeInVariants}
-            className="px-8"
-            style={{ paddingLeft: 'max(600px, 3rem)' }} // 文字保持在 Sidebar 右側
+            className="px-8 md:pl-[max(600px,3rem)]"
           >
             {/* 標題 */}
             <motion.div
@@ -263,8 +261,7 @@ const ScrollHome = () => {
 
             {/* 文字面板 - 保持在 Sidebar 右側 */}
             <motion.div
-              className="absolute top-1/2 transform -translate-y-1/2 p-12 max-w-xl"
-              style={{ left: '600px' }} // 文字不被 Sidebar 遮擋
+              className="absolute top-1/2 transform -translate-y-1/2 p-12 max-w-xl left-4 md:left-[600px]"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -429,8 +426,7 @@ const ScrollHome = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={fadeInVariants}
-            className="px-4 py-20"
-            style={{ paddingLeft: 'max(600px, 2rem)' }} // 文字保持在 Sidebar 右側
+            className="px-4 py-20 md:pl-[max(600px,2rem)]"
           >
             <motion.h2
               className="text-5xl md:text-6xl font-bold text-white text-center mb-16"
@@ -501,8 +497,7 @@ const ScrollHome = () => {
         {/* Section 7: 聯繫資訊 - 簡潔設計 */}
         <section className="h-screen w-full bg-gradient-to-br from-red-600 to-red-800 flex items-center" id="contact">
           <motion.div
-            className="px-12 text-center w-full"
-            style={{ paddingLeft: 'max(620px, 3rem)' }} // 文字保持在 Sidebar 右側
+            className="px-12 text-center w-full md:pl-[max(620px,3rem)]"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
