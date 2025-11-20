@@ -31,7 +31,9 @@ const Sidebar = () => {
         transition={{ duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }}
         className="hidden md:fixed md:block left-0 top-0 h-full z-50"
         style={{
-          width: '576px',
+          width: '20vw',
+          minWidth: '280px',
+          maxWidth: '600px',
           background: 'linear-gradient(135deg, #CC0000 0%, #990000 100%)',
           clipPath: 'polygon(0 0, 100% 0, 65% 100%, 0 100%)',
           boxShadow: '4px 0 20px rgba(0, 0, 0, 0.3)',
