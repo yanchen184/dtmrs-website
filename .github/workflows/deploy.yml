@@ -37,22 +37,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # 4. 執行 Playwright 測試（可選）
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
-        continue-on-error: true
-
-      - name: Run Playwright tests
-        run: npm run test || echo "Tests failed but continuing deployment"
-        continue-on-error: true
-
-      # 5. 建置專案
+      # 4. 建置專案
       - name: Build project
         run: npm run build
         env:
           NODE_ENV: production
 
-      # 6. 上傳建置產物
+      # 5. 上傳建置產物
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
