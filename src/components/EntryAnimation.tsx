@@ -7,7 +7,7 @@ const EntryAnimation = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowAnimation(false);
-    }, 6500);
+    }, 5500); // 從 6500 縮短到 5500 毫秒
     return () => clearTimeout(timer);
   }, []);
 
@@ -20,14 +20,14 @@ const EntryAnimation = () => {
             initial={{ opacity: 1 }}
             animate={{ opacity: [1, 1, 0] }}
             transition={{
-              duration: 6.5,
-              times: [0, 5.0 / 6.5, 1], // 0秒維持, 5秒開始淡出, 6.5秒結束
+              duration: 5.5,
+              times: [0, 4.5 / 5.5, 1], // 0秒維持, 4.5秒開始淡出, 5.5秒結束
               ease: "linear",
             }}
             className="fixed inset-0 z-[9999] bg-black pointer-events-none"
           />
 
-          {/* 紅色梯形動畫 - 左窄右寬的梯形 */}
+          {/* 紅色梯形動畫 - 左窄右寬的梯形（僅桌面版顯示） */}
           <motion.div
             initial={{ x: "100%", opacity: 1 }}
             animate={{
@@ -40,12 +40,12 @@ const EntryAnimation = () => {
                 ease: [0.6, 0.05, 0.01, 0.9],
               },
               opacity: {
-                duration: 6.5,
-                times: [0, 3.0 / 6.5, 5.0 / 6.5, 5.0 / 6.5, 1], // 0秒開始, 3秒維持, 5秒維持, 5秒開始淡出, 6.5秒結束
+                duration: 5.5,
+                times: [0, 3.0 / 5.5, 4.5 / 5.5, 4.5 / 5.5, 1], // 0秒開始, 3秒維持, 4.5秒維持, 4.5秒開始淡出, 5.5秒結束
                 ease: "linear",
               },
             }}
-            className="fixed top-0 left-0 w-full h-full z-[10000] pointer-events-none overflow-hidden"
+            className="hidden md:block fixed top-0 left-0 w-full h-full z-[10000] pointer-events-none overflow-hidden"
           >
             {/* 梯形形狀 - 跟 Sidebar 相同的斜度和顏色 */}
             <div
@@ -68,8 +68,8 @@ const EntryAnimation = () => {
             }}
             transition={{
               x: {
-                duration: 7.0, // 比較慢
-                delay: 0.5, // 1.2秒後開始移動
+                duration: 4.5, // 加快速度：從 7.0 改為 4.5 秒
+                delay: 0.3, // 提早開始：從 0.5 改為 0.3 秒
                 ease: [0.25, 0.1, 0.25, 1.0],
               },
             }}

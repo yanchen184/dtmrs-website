@@ -83,7 +83,7 @@ const ScrollHome = () => {
 
           {/* 標題文字 - 手機版置中，桌面版偏右 */}
           <motion.div
-            className="absolute inset-0 flex items-center justify-center text-center z-10 px-4 md:pl-[300px] lg:pl-[400px] pt-16 md:pt-0"
+            className="absolute inset-0 flex items-center justify-center text-center z-10 px-4 md:pl-[22vw] md:pr-8 pt-16 md:pt-0"
             style={{
               opacity
             }}
@@ -121,7 +121,7 @@ const ScrollHome = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeInVariants}
-            className="px-4 sm:px-8 md:pl-[300px] lg:pl-[400px]"
+            className="px-4 sm:px-8 md:pl-[22vw] md:pr-8 lg:pr-12"
           >
             {/* 標題 */}
             <motion.div
@@ -426,7 +426,7 @@ const ScrollHome = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={fadeInVariants}
-            className="px-4 py-12 sm:py-20 md:pl-[300px] lg:pl-[400px]"
+            className="px-4 py-12 sm:py-20 md:pl-[22vw] md:pr-8 lg:pr-12"
           >
             <motion.h2
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center mb-8 sm:mb-16"
@@ -497,7 +497,7 @@ const ScrollHome = () => {
         {/* Section 7: 聯繫資訊 - 簡潔設計 */}
         <section className="min-h-screen w-full bg-gradient-to-br from-red-600 to-red-800 flex items-center py-12 pb-24 md:pb-12" id="contact">
           <motion.div
-            className="px-4 sm:px-8 md:px-12 text-center w-full md:pl-[300px] lg:pl-[400px]"
+            className="px-4 sm:px-8 text-center w-full md:pl-[22vw] md:pr-8 lg:pr-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
