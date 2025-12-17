@@ -28,3 +28,8 @@ test-results/
 e2e/**/*.png
 e2e/**/*.webm
 e2e/dtmrs-website.spec.ts-snapshots/
+
+# Video backups and deployment packages
+public/assets/videos/backup-original/
+*.zip
+nul

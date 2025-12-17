@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>影片與圖片測試頁面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        video, img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .item {
+            text-align: center;
+        }
+        .item p {
+            margin: 5px 0;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎬 影片與圖片測試頁面</h1>
+
+    <div class="section">
+        <h2>📊 載入狀態</h2>
+        <div id="status-container"></div>
+    </div>
+
+    <div class="section">
+        <h2>🎥 影片測試（壓縮後）</h2>
+        <div class="grid">
+            <div class="item">
+                <h3>影片 1: DTM東京車展</h3>
+                <video
+                    id="video1"
+                    controls
+                    width="100%"
+                    src="/dtmrs-website/assets/videos/20241208 DTM東京車展60sec.mp4"
+                    onloadeddata="videoLoaded('video1')"
+                    onerror="videoError('video1')">
+                </video>
+                <p>路徑: /dtmrs-website/assets/videos/20241208 DTM東京車展60sec.mp4</p>
+            </div>
+
+            <div class="item">
+                <h3>影片 2: DTMRS Autosalon</h3>
+                <video
+                    id="video2"
+                    controls
+                    width="100%"
+                    src="/dtmrs-website/assets/videos/20250112 DTMRS Autosalon序HD .mp4"
+                    onloadeddata="videoLoaded('video2')"
+                    onerror="videoError('video2')">
+                </video>
+                <p>路徑: /dtmrs-website/assets/videos/20250112 DTMRS Autosalon序HD .mp4</p>
+            </div>
+
+            <div class="item">
+                <h3>影片 3: SGT6 Asurada</h3>
+                <video
+                    id="video3"
+                    controls
+                    width="100%"
+                    src="/dtmrs-website/assets/videos/20250420 SGT6 DTMRS Asurada.mp4"
+                    onloadeddata="videoLoaded('video3')"
+                    onerror="videoError('video3')">
+                </video>
+                <p>路徑: /dtmrs-website/assets/videos/20250420 SGT6 DTMRS Asurada.mp4</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🖼️ 圖片測試</h2>
+        <div class="grid">
+            <div class="item">
+                <h3>圖片 1</h3>
+                <img
+                    id="img1"
+                    src="/dtmrs-website/assets/images/DFM03708.jpg"
+                    alt="DFM03708"
+                    onload="imageLoaded('img1')"
+                    onerror="imageError('img1')">
+                <p>DFM03708.jpg (4.0 MB)</p>
+            </div>
+
+            <div class="item">
+                <h3>圖片 2</h3>
+                <img
+                    id="img2"
+                    src="/dtmrs-website/assets/images/DIR06227.jpg"
+                    alt="DIR06227"
+                    onload="imageLoaded('img2')"
+                    onerror="imageError('img2')">
+                <p>DIR06227.jpg (2.9 MB)</p>
+            </div>
+
+            <div class="item">
+                <h3>圖片 3</h3>
+                <img
+                    id="img3"
+                    src="/dtmrs-website/assets/images/DIR06240.jpg"
+                    alt="DIR06240"
+                    onload="imageLoaded('img3')"
+                    onerror="imageError('img3')">
+                <p>DIR06240.jpg (3.3 MB)</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const status = {
+            videos: {},
+            images: {}
+        };
+
+        function videoLoaded(id) {
+            status.videos[id] = true;
+            updateStatus();
+            console.log(`✅ ${id} loaded successfully`);
+        }
+
+        function videoError(id) {
+            status.videos[id] = false;
+            updateStatus();
+            console.error(`❌ ${id} failed to load`);
+        }
+
+        function imageLoaded(id) {
+            status.images[id] = true;
+            updateStatus();
+            console.log(`✅ ${id} loaded successfully`);
+        }
+
+        function imageError(id) {
+            status.images[id] = false;
+            updateStatus();
+            console.error(`❌ ${id} failed to load`);
+        }
+
+        function updateStatus() {
+            const container = document.getElementById('status-container');
+            const videoCount = Object.values(status.videos).filter(v => v).length;
+            const imageCount = Object.values(status.images).filter(v => v).length;
+            const totalVideos = 3;
+            const totalImages = 3;
+
+            container.innerHTML = `
+                <div class="${videoCount === totalVideos ? 'status success' : 'status error'}">
+                    影片載入: ${videoCount}/${totalVideos}
+                    ${videoCount === totalVideos ? '✅ 全部成功' : '⚠️ 部分失敗'}
+                </div>
+                <div class="${imageCount === totalImages ? 'status success' : 'status error'}">
+                    圖片載入: ${imageCount}/${totalImages}
+                    ${imageCount === totalImages ? '✅ 全部成功' : '⚠️ 部分失敗'}
+                </div>
+            `;
+        }
+
+        // 初始狀態
+        updateStatus();
+
+        // 輸出版本資訊
+        console.log('🎬 影片與圖片測試頁面');
+        console.log('📅 測試時間:', new Date().toLocaleString());
+        console.log('🔗 當前路徑:', window.location.href);
+    </script>
+</body>
+</html>

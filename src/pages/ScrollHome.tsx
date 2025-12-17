@@ -17,7 +17,7 @@ const ScrollHome = () => {
     setIsLoaded(true);
 
     // 移除預載入邏輯，改用 preload="metadata" 提升效能
-    console.log('DTMRS Website v2.9.6 - 無縫接續進場動畫');
+    console.log('DTMRS Website v2.9.12 - 手機版 RWD 優化');
   }, []);
 
   // 視差效果
@@ -81,9 +81,9 @@ const ScrollHome = () => {
           {/* 漸層遮罩 */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60"></div>
 
-          {/* 標題文字 - 保持在 Sidebar 右側 */}
+          {/* 標題文字 - 手機版置中，桌面版偏右 */}
           <motion.div
-            className="absolute inset-0 flex items-center justify-center text-center z-10 md:pl-[600px] pt-16 md:pt-0"
+            className="absolute inset-0 flex items-center justify-center text-center z-10 px-4 md:pl-[300px] lg:pl-[400px] pt-16 md:pt-0"
             style={{
               opacity
             }}
@@ -93,10 +93,10 @@ const ScrollHome = () => {
               animate={isLoaded ? "visible" : "hidden"}
               variants={fadeInUpVariants}
             >
-              <h1 className="text-7xl md:text-9xl font-bold text-white mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold text-white mb-4 sm:mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
                 DTM RACING
               </h1>
-              <p className="text-2xl md:text-3xl text-white/90 drop-shadow-lg font-light tracking-wider">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 drop-shadow-lg font-light tracking-wider px-4 sm:px-0">
                 專業賽車改裝 | 性能提升專家
               </p>
             </motion.div>
@@ -121,19 +121,19 @@ const ScrollHome = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeInVariants}
-            className="px-8 md:pl-[max(600px,3rem)]"
+            className="px-4 sm:px-8 md:pl-[300px] lg:pl-[400px]"
           >
             {/* 標題 */}
             <motion.div
-              className="text-center mb-16"
+              className="text-center mb-8 sm:mb-16"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
                 關於 DTM Racing Sport
               </h2>
-              <div className="w-32 h-1 bg-red-600 mx-auto"></div>
+              <div className="w-24 sm:w-32 h-1 bg-red-600 mx-auto"></div>
             </motion.div>
 
             {/* 公司簡介 */}
@@ -259,19 +259,19 @@ const ScrollHome = () => {
             {/* 漸層遮罩 */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
 
-            {/* 文字面板 - 保持在 Sidebar 右側 */}
+            {/* 文字面板 - 手機版左側，桌面版偏右 */}
             <motion.div
-              className="absolute top-1/2 transform -translate-y-1/2 p-12 max-w-xl left-4 md:left-[600px]"
+              className="absolute top-1/2 transform -translate-y-1/2 p-6 sm:p-12 max-w-xl left-4 md:left-[300px] lg:left-[400px]"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <h2 className="text-6xl font-bold text-white mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
                 東京車展 2024
               </h2>
-              <div className="w-24 h-1 bg-red-500 mb-6"></div>
-              <p className="text-xl text-white/90 leading-relaxed">
+              <div className="w-16 sm:w-24 h-1 bg-red-500 mb-4 sm:mb-6"></div>
+              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
                 參與亞洲最大規模的汽車展覽
               </p>
             </motion.div>
@@ -325,7 +325,7 @@ const ScrollHome = () => {
                 <img
                   src={`/dtmrs-website/assets/images/${img}`}
                   alt={`Gallery ${index + 1}`}
-                  className="w-full h-[300px] object-cover"
+                  className="w-full h-[200px] sm:h-[250px] md:h-[300px] object-cover"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
               </motion.div>
@@ -366,7 +366,7 @@ const ScrollHome = () => {
                 <img
                   src={`/dtmrs-website/assets/images/${img}`}
                   alt={`Gallery Extra ${index + 1}`}
-                  className="w-full h-[300px] object-cover"
+                  className="w-full h-[200px] sm:h-[250px] md:h-[300px] object-cover"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
               </motion.div>
@@ -402,17 +402,17 @@ const ScrollHome = () => {
             {/* 漸層遮罩 */}
             <div className="absolute inset-0 bg-gradient-to-l from-black/80 via-black/40 to-transparent"></div>
             <motion.div
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 p-12 max-w-xl text-right"
+              className="absolute right-4 sm:right-8 md:right-12 top-1/2 transform -translate-y-1/2 p-4 sm:p-6 md:p-12 max-w-xl text-right"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <h2 className="text-6xl font-bold text-white mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
                 Auto Salon 2025
               </h2>
-              <div className="w-24 h-1 bg-red-500 mb-6 ml-auto"></div>
-              <p className="text-xl text-white/90 leading-relaxed">
+              <div className="w-16 sm:w-24 h-1 bg-red-500 mb-4 sm:mb-6 ml-auto"></div>
+              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
                 展出頂級改裝作品與創新技術
               </p>
             </motion.div>
@@ -426,10 +426,10 @@ const ScrollHome = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={fadeInVariants}
-            className="px-4 py-20 md:pl-[max(600px,2rem)]"
+            className="px-4 py-12 sm:py-20 md:pl-[300px] lg:pl-[400px]"
           >
             <motion.h2
-              className="text-5xl md:text-6xl font-bold text-white text-center mb-16"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center mb-8 sm:mb-16"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -495,33 +495,33 @@ const ScrollHome = () => {
         </section>
 
         {/* Section 7: 聯繫資訊 - 簡潔設計 */}
-        <section className="h-screen w-full bg-gradient-to-br from-red-600 to-red-800 flex items-center" id="contact">
+        <section className="min-h-screen w-full bg-gradient-to-br from-red-600 to-red-800 flex items-center py-12 pb-24 md:pb-12" id="contact">
           <motion.div
-            className="px-12 text-center w-full md:pl-[max(620px,3rem)]"
+            className="px-4 sm:px-8 md:px-12 text-center w-full md:pl-[300px] lg:pl-[400px]"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUpVariants}
           >
-            <h2 className="text-6xl md:text-8xl font-bold text-white mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-white mb-4 sm:mb-8">
               START YOUR JOURNEY
             </h2>
-            <div className="w-32 h-1 bg-white mx-auto mb-12"></div>
-            <p className="text-2xl text-white/90 mb-12">
+            <div className="w-24 sm:w-32 h-1 bg-white mx-auto mb-6 sm:mb-12"></div>
+            <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 sm:mb-12">
               讓 DTM 為您打造夢想中的賽車
             </p>
             <motion.div
-              className="flex flex-col md:flex-row justify-center items-center gap-8 text-white text-xl"
+              className="flex flex-col md:flex-row justify-center items-center gap-4 sm:gap-8 text-white text-base sm:text-lg md:text-xl"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <a href="mailto:bobchen184@gmail.com" className="flex items-center gap-4 hover:text-white/80 transition-colors">
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+              <a href="mailto:bobchen184@gmail.com" className="flex items-center gap-3 sm:gap-4 hover:text-white/80 transition-colors">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
-                <span>bobchen184@gmail.com</span>
+                <span className="break-all sm:break-normal">bobchen184@gmail.com</span>
               </a>
             </motion.div>
           </motion.div>

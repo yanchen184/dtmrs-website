@@ -2,21 +2,21 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 const images = [
-  { id: 1, src: '/assets/images/DFM03708.jpg', title: '東京車展展位' },
-  { id: 2, src: '/assets/images/DFM03713.jpg', title: '賽車展示' },
-  { id: 3, src: '/assets/images/DIR06227.jpg', title: '引擎改裝展示' },
-  { id: 4, src: '/assets/images/DIR06240.jpg', title: '活動現場' },
-  { id: 5, src: '/assets/images/DIR06244.jpg', title: '專業團隊' },
-  { id: 6, src: '/assets/images/DIR06483.jpg', title: 'Auto Salon' },
-  { id: 7, src: '/assets/images/DIR06485.jpg', title: '賽車細節' },
-  { id: 8, src: '/assets/images/DIR06506.jpg', title: '車展活動' },
-  { id: 9, src: '/assets/images/DIR06516.jpg', title: '改裝作品' },
-  { id: 10, src: '/assets/images/DIR06525.jpg', title: '專業講解' },
-  { id: 11, src: '/assets/images/DIR06557.jpg', title: '賽道英姿' },
-  { id: 12, src: '/assets/images/DIR06574.jpg', title: '團隊合照' },
-  { id: 13, src: '/assets/images/DIR06591.jpg', title: '精彩瞬間' },
-  { id: 14, src: '/assets/images/DIRK7360.jpg', title: 'Super GT' },
-  { id: 15, src: '/assets/images/DSC00004.JPG', title: '賽事花絮' },
+  { id: 1, src: '/dtmrs-website/assets/images/DFM03708.jpg', title: '東京車展展位' },
+  { id: 2, src: '/dtmrs-website/assets/images/DFM03713.jpg', title: '賽車展示' },
+  { id: 3, src: '/dtmrs-website/assets/images/DIR06227.jpg', title: '引擎改裝展示' },
+  { id: 4, src: '/dtmrs-website/assets/images/DIR06240.jpg', title: '活動現場' },
+  { id: 5, src: '/dtmrs-website/assets/images/DIR06244.jpg', title: '專業團隊' },
+  { id: 6, src: '/dtmrs-website/assets/images/DIR06483.jpg', title: 'Auto Salon' },
+  { id: 7, src: '/dtmrs-website/assets/images/DIR06485.jpg', title: '賽車細節' },
+  { id: 8, src: '/dtmrs-website/assets/images/DIR06506.jpg', title: '車展活動' },
+  { id: 9, src: '/dtmrs-website/assets/images/DIR06516.jpg', title: '改裝作品' },
+  { id: 10, src: '/dtmrs-website/assets/images/DIR06525.jpg', title: '專業講解' },
+  { id: 11, src: '/dtmrs-website/assets/images/DIR06557.jpg', title: '賽道英姿' },
+  { id: 12, src: '/dtmrs-website/assets/images/DIR06574.jpg', title: '團隊合照' },
+  { id: 13, src: '/dtmrs-website/assets/images/DIR06591.jpg', title: '精彩瞬間' },
+  { id: 14, src: '/dtmrs-website/assets/images/DIRK7360.jpg', title: 'Super GT' },
+  { id: 15, src: '/dtmrs-website/assets/images/DSC00004.JPG', title: '賽事花絮' },
 ];
 
 const Gallery = () => {

@@ -11,7 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="min-h-screen bg-white">
       <Sidebar />
       <ContactButtons />
-      <main className="ml-64 min-h-screen">
+      <main className="ml-0 md:ml-64 min-h-screen pt-16 md:pt-0">
         {children}
       </main>
     </div>

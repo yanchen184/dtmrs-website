@@ -197,13 +197,13 @@ const Sidebar = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.6, 0.05, 0.01, 0.9] }}
-        className="md:hidden fixed top-0 left-0 w-full z-50"
+        className="md:hidden fixed top-0 left-0 w-full z-50 safe-area-inset-top"
         style={{
           background: 'linear-gradient(135deg, #CC0000 0%, #990000 100%)',
           boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
         }}
       >
-        <div className="flex items-center justify-between px-4 py-3">
+        <div className="flex items-center justify-between px-4 py-3 min-h-[64px]">
           {/* Logo */}
           <motion.img
             initial={{ opacity: 0, scale: 0.8 }}
@@ -214,14 +214,14 @@ const Sidebar = () => {
             className="h-10 w-auto drop-shadow-lg"
           />
 
-          {/* 漢堡選單按鈕 */}
+          {/* 漢堡選單按鈕 - 44x44px 符合觸控目標要求 */}
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="relative w-10 h-10 flex items-center justify-center rounded-md
-                     bg-white/10 hover:bg-white/20 transition-colors"
+            className="relative w-11 h-11 flex items-center justify-center rounded-lg
+                     bg-white/10 hover:bg-white/20 active:bg-white/30 transition-colors"
             aria-label="選單"
           >
             <div className="flex flex-col gap-1.5">
@@ -242,17 +242,16 @@ const Sidebar = () => {
         </div>
       </motion.div>
 
-      {/* 手機版側邊抽屜選單 */}
+      {/* 手機版側邊抽屜選單 - 直角設計，無死區 */}
       <motion.div
         initial={{ x: '-100%' }}
         animate={{ x: isMobileMenuOpen ? 0 : '-100%' }}
         transition={{ duration: 0.4, ease: [0.6, 0.05, 0.01, 0.9] }}
         className="md:hidden fixed top-0 left-0 h-full z-40"
         style={{
-          width: '85vw',
-          maxWidth: '400px',
+          width: '80vw',
+          maxWidth: '320px',
           background: 'linear-gradient(135deg, #CC0000 0%, #990000 100%)',
-          clipPath: 'polygon(0 0, 100% 0, 80% 100%, 0 100%)',
           boxShadow: '4px 0 20px rgba(0, 0, 0, 0.5)',
         }}
       >
