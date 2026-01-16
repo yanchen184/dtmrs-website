@@ -8,15 +8,22 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: #000000;
   color: #1a1a1a;
   overflow-x: hidden;
+}
+
+/* 防止動畫造成水平溢出 */
+.scroll-container {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 * {
@@ -29,7 +36,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb {

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Sidebar from '../components/Sidebar';
 import ContactButtons from '../components/ContactButtons';
+import { videoUrls, getLogoUrl } from '../config/cdnConfig';
 
 const Home = () => {
   const [showLogo, setShowLogo] = useState(true);
@@ -44,7 +45,7 @@ const Home = () => {
             className="absolute inset-0 flex items-center justify-center z-20 bg-black"
           >
             <motion.img
-              src="/assets/logo/白字DTM LOGO.png"
+              src={getLogoUrl('white')}
               alt="DTM Logo"
               className="w-1/2 max-w-2xl"
               initial={{ scale: 0.8 }}
@@ -73,7 +74,7 @@ const Home = () => {
               className="w-full h-full object-cover"
             >
               <source
-                src="/dtmrs-website/assets/videos/20250420 SGT6 DTMRS Asurada.mp4"
+                src={videoUrls.sgt6}
                 type="video/mp4"
               />
               您的瀏覽器不支援影片播放。

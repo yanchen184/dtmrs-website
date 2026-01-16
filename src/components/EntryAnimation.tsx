@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { getLogoUrl } from "../config/cdnConfig";
 
 const EntryAnimation = () => {
   const [showAnimation, setShowAnimation] = useState(true);
@@ -27,7 +28,7 @@ const EntryAnimation = () => {
             className="fixed inset-0 z-[9999] bg-black pointer-events-none"
           />
 
-          {/* 紅色梯形動畫 - 左窄右寬的梯形（僅桌面版顯示） */}
+          {/* 碳纖維梯形動畫 - 左窄右寬的梯形（僅桌面版顯示） */}
           <motion.div
             initial={{ x: "100%", opacity: 1 }}
             animate={{
@@ -47,14 +48,23 @@ const EntryAnimation = () => {
             }}
             className="hidden md:block fixed top-0 left-0 w-full h-full z-[10000] pointer-events-none overflow-hidden"
           >
-            {/* 梯形形狀 - 跟 Sidebar 相同的斜度和顏色 */}
+            {/* 梯形形狀 - 碳纖維紋理 */}
             <div
               className="absolute top-0 h-full shadow-2xl"
               style={{
-                width: "2000px", // 從 w-72 (288px) 放大一倍到 576px
-                background: "linear-gradient(135deg, #CC0000 0%, #990000 100%)",
-                clipPath: "polygon(35% 0, 100% 0, 65% 100%, 0 100%)", // 調整梯形角度
-                boxShadow: "4px 0 20px rgba(0, 0, 0, 0.3)",
+                width: "2000px",
+                background: `
+                  linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+                  linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+                  linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+                  linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+                  linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+                  linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424)
+                `,
+                backgroundColor: "#131313",
+                backgroundSize: "20px 20px",
+                clipPath: "polygon(35% 0, 100% 0, 65% 100%, 0 100%)",
+                boxShadow: "4px 0 30px rgba(0, 0, 0, 0.8), inset 0 0 100px rgba(255, 255, 255, 0.05)",
               }}
             ></div>
           </motion.div>
@@ -76,7 +86,7 @@ const EntryAnimation = () => {
             className="fixed top-0 left-0 w-full h-full z-[10001] pointer-events-none flex items-center justify-center"
           >
             <img
-              src="/dtmrs-website/assets/logo/白字DTM LOGO.png"
+              src={getLogoUrl('white')}
               alt="DTM Logo"
               className="w-full h-auto drop-shadow-lg"
             />

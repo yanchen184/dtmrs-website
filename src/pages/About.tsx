@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { getImageUrl } from '../config/cdnConfig';
 
 const About = () => {
   return (
@@ -20,7 +21,7 @@ const About = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             <img
-              src="/assets/images/DIRK7360.jpg"
+              src={getImageUrl('DIRK7360.jpg')}
               alt="DTM Racing Team"
               className="w-full h-auto rounded-lg shadow-2xl"
             />

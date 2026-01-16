@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { videoUrls, getImageUrl } from '../config/cdnConfig';
 
 const events = [
   {
@@ -7,8 +8,8 @@ const events = [
     date: '2024.12.08',
     location: '東京國際展覽中心',
     description: '參與日本最大規模的汽車展覽，展示最新的改裝技術與產品',
-    image: '/assets/images/DFM03708.jpg',
-    video: '/dtmrs-website/assets/videos/20241208 DTM東京車展60sec.mp4',
+    image: getImageUrl('DFM03708.jpg'),
+    video: videoUrls.tokyoAutoshow2024,
   },
   {
     id: 2,
@@ -16,8 +17,8 @@ const events = [
     date: '2025.01.12',
     location: '幕張展覽館',
     description: '亞洲最大改裝車展，展出頂級改裝作品',
-    image: '/assets/images/DIR06483.jpg',
-    video: '/dtmrs-website/assets/videos/20250112 DTMRS Autosalon序HD .mp4',
+    image: getImageUrl('DIR06483.jpg'),
+    video: videoUrls.autosalon2025,
   },
   {
     id: 3,
@@ -25,8 +26,8 @@ const events = [
     date: '2025.04.20',
     location: 'Fuji Speedway',
     description: '參與 Super GT 第六站賽事，展現賽車技術',
-    image: '/assets/images/DIRK7360.jpg',
-    video: '/dtmrs-website/assets/videos/20250420 SGT6 DTMRS Asurada.mp4',
+    image: getImageUrl('DIRK7360.jpg'),
+    video: videoUrls.sgt6,
   },
 ];
 

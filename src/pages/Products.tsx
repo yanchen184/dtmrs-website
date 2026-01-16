@@ -1,32 +1,33 @@
 import { motion } from 'framer-motion';
+import { getImageUrl } from '../config/cdnConfig';
 
 const products = [
   {
     id: 1,
     title: '引擎改裝套件',
     description: '專業的引擎性能提升方案，包含進排氣系統、ECU 調校等',
-    image: '/assets/images/DIR06227.jpg',
+    image: getImageUrl('DIR06227.jpg'),
     category: '動力系統',
   },
   {
     id: 2,
     title: '空力套件',
     description: '賽車級空氣動力學套件，提升下壓力與操控性',
-    image: '/assets/images/DFM03708.jpg',
+    image: getImageUrl('DFM03708.jpg'),
     category: '外觀套件',
   },
   {
     id: 3,
     title: '懸吊系統',
     description: '可調式避震器與懸吊強化套件',
-    image: '/assets/images/DFM03713.jpg',
+    image: getImageUrl('DFM03713.jpg'),
     category: '底盤系統',
   },
   {
     id: 4,
     title: '煞車系統',
     description: '高性能煞車套件，提供更強的制動力',
-    image: '/assets/images/DIR06244.jpg',
+    image: getImageUrl('DIR06244.jpg'),
     category: '制動系統',
   },
 ];

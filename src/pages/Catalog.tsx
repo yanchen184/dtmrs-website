@@ -1,25 +1,26 @@
 import { motion } from 'framer-motion';
+import { getImageUrl } from '../config/cdnConfig';
 
 const catalogs = [
   {
     id: 1,
     title: '引擎改裝系列',
     description: '完整的引擎性能提升解決方案',
-    image: '/dtmrs-website/assets/images/DIR06227.jpg',
+    image: getImageUrl('DIR06227.jpg'),
     pdfLink: '#',
   },
   {
     id: 2,
     title: '外觀套件系列',
     description: '空力套件與視覺改裝',
-    image: '/dtmrs-website/assets/images/DFM03708.jpg',
+    image: getImageUrl('DFM03708.jpg'),
     pdfLink: '#',
   },
   {
     id: 3,
     title: '底盤升級系列',
     description: '懸吊與煞車系統升級',
-    image: '/dtmrs-website/assets/images/DFM03713.jpg',
+    image: getImageUrl('DFM03713.jpg'),
     pdfLink: '#',
   },
 ];
