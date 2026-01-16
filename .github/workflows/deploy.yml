@@ -37,9 +37,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # 4. 建置專案
+      # 4. 建置專案 (GitHub Pages 版本)
       - name: Build project
-        run: npm run build
+        run: npm run build:github
         env:
           NODE_ENV: production
 
@@ -47,7 +47,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./dist-github
 
   # 部署 job
   deploy:
